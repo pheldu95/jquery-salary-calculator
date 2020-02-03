@@ -26,6 +26,9 @@ function addEmployee(){
     totalSalary += monthlySal;
     $(".total").text(totalSalary);
   }
+  if(totalSalary > 20000){
+    $(".totalCounter").addClass("red");
+  }
 
 }
 function deleteRow(){
