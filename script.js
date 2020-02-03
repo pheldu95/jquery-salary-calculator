@@ -20,7 +20,14 @@ function addEmployee(){
   }
 
   //employeeArray.push(employeeObject);
-  $('#employeeTable').append(`<tr id = rowNum><td>${first}</td><td>${last}</td><td>${idNum}</td><td>${jobTitle}</td><td id = 'monthlySalID'>$${monthlySal}</td><td><button id = "deleteButton">delete</button></td></tr>`);
+  $('#employeeTable').append(`<tr id = rowNum>
+                                <td>${first}</td>
+                                <td>${last}</td>
+                                <td>${idNum}</td>
+                                <td>${jobTitle}</td>
+                                <td id = 'monthlySalID'>${monthlySal}</td>
+                                <td><button id = "deleteButton">delete</button></td>
+                              </tr>`);
   if(isNaN(monthlySal) === false){ //checks to see if the salary entered is a number or not. if it isn't a number, then nothing will be done with the total salary. if it is, then it will be added
     monthlySal = parseInt(monthlySal);
     totalMonthlySalary += monthlySal;
@@ -35,11 +42,8 @@ function addEmployee(){
   clearInputs();
 }//end add employee
 function deleteRow(){
-  let subtractSal = $(this).closest('tr').children('#monthlySalID').val(); //trying to target the salary of the closest employee
-  console.log(subtractSal);//subtract sal is not working yet
-  console.log(totalMonthlySalary);
+  let subtractSal = $(this).parent().prev().text(); //trying to target the salary of the closest employee
   totalMonthlySalary -= subtractSal;
-  console.log(totalMonthlySalary);
   $(".total").text(totalMonthlySalary);
   $(this).parent().parent().remove();//removes the parent of the parent of the button. that is the <tr>. so the whole row is removed
 
