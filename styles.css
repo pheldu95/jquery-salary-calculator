@@ -5,11 +5,11 @@ body{
 }
 
 .title{
-  background-color: teal;
+  /* background-color: teal; */
   font-size: 40px;
 }
 .inputArea{
-  background-color: pink;
+  /* background-color: pink; */
 }
 .deleteColumn{
   width: 50px;
