@@ -44,6 +44,12 @@ function addEmployee(){
 function deleteRow(){
   let subtractSal = $(this).parent().prev().text(); //trying to target the salary of the closest employee
   totalMonthlySalary -= subtractSal;
+  if(totalMonthlySalary > 20000){
+    $(".totalCounter").addClass("red");
+  }
+  else {
+    $(".totalCounter").removeClass("red");
+  }
   $(".total").text(totalMonthlySalary);
   $(this).parent().parent().remove();//removes the parent of the parent of the button. that is the <tr>. so the whole row is removed
 
