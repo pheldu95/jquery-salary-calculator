@@ -29,8 +29,8 @@ function addEmployee(){
   if(totalSalary > 20000){
     $(".totalCounter").addClass("red");
   }
-
-}
+  clearInputs();
+}//end add employee
 function deleteRow(){
   let subtractSal = $(this).closest('tr').children('#monthlySalID').val(); //trying to target the salary of the closest employee
   console.log(subtractSal);
@@ -40,4 +40,11 @@ function deleteRow(){
   $(".total").text(totalSalary);
   $(this).parent().parent().remove();
 
+}
+function clearInputs(){
+  $ ('#firstNameInput').val('');
+  $ ('#lastNameInput').val('');
+  $ ('#idInput').val('');
+  $ ('#titleInput').val('');
+  $ ('#annualSalaryInput').val('');
 }
